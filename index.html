@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طعم المانجو | Taste of Mango</title>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -56,7 +54,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px 15px;
         }
@@ -81,7 +79,7 @@
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
@@ -116,7 +114,7 @@
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 5px;
@@ -128,11 +126,35 @@
             margin-bottom: 12px;
         }
 
+        .size-options {
+            margin-bottom: 12px;
+        }
+
+        .size-options label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--dark);
+        }
+
+        .size-select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            background-color: var(--white);
+        }
+
         .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
+            border-top: 1px solid #F0F0F0;
+            padding-top: 10px;
         }
 
         .price {
@@ -222,24 +244,10 @@
 
         @media (max-width: 600px) {
             .menu-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
+                grid-template-columns: 1fr;
             }
             .card-img {
-                height: 130px;
-            }
-            .card-title {
-                font-size: 1rem;
-            }
-            .card-desc {
-                font-size: 0.75rem;
-            }
-            .price {
-                font-size: 0.95rem;
-            }
-            .btn-select {
-                padding: 6px 10px;
-                font-size: 0.8rem;
+                height: 160px;
             }
         }
     </style>
@@ -253,83 +261,215 @@
 
     <div class="container">
         
-        <h2 class="section-title">قائمة العصائر | Menu</h2>
+        <h2 class="section-title">قائمة العصائر الرسمية | Official Menu</h2>
 
         <div class="menu-grid">
-            <!-- Item 1 -->
+            
+            <!-- Item 1: Mango with Ice Cream -->
+            <div class="menu-card">
+                <img src="Andulusian mangoمانجو أندلسي.png" alt="مانجو مع آيس كريم" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">مانجو مع آيس كريم | Mango with Ice Cream</div>
+                        <div class="card-desc">عصير مانجو غني مع كرة آيس كريم فاخرة</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-1">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-1" class="size-select" onchange="updatePrice(1)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 13 ريال" selected>وسط (Medium) - 13 ريال</option>
+                            <option value="كبير (Large) - 15 ريال">كبير (Large) - 15 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 24 ريال">جالون 1 لتر - 24 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 31 ريال">جالون 1.5 لتر - 31 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 90 ريال">جالون 5 لتر - 90 ريال</option>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price" id="price-1">13 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('مانجو مع آيس كريم (Mango with Ice Cream)', 1)">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Andalusian Spanish Mango -->
             <div class="menu-card">
                 <img src="Andulusian mangoمانجو أندلسي.png" alt="مانجو أندلسي" class="card-img">
                 <div class="card-body">
                     <div>
-                        <div class="card-title">مانجو أندلسي | Andalusian Mango</div>
-                        <div class="card-desc">عصير مانجو طبيعي فاخر بقطع الفاكهة</div>
+                        <div class="card-title">مانجو أندلسي طريقة إسبانية | Andalusian Mango Spanish Style</div>
+                        <div class="card-desc">طريقة خاصة ومميزة لعصير المانجو الطبيعي</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-2">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-2" class="size-select" onchange="updatePrice(2)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 13 ريال" selected>وسط (Medium) - 13 ريال</option>
+                            <option value="كبير (Large) - 15 ريال">كبير (Large) - 15 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 25 ريال">جالون 1 لتر - 25 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 32 ريال">جالون 1.5 لتر - 32 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 92 ريال">جالون 5 لتر - 92 ريال</option>
+                        </select>
                     </div>
                     <div class="card-footer">
-                        <span class="price">15 ريال</span>
-                        <button class="btn-select" onclick="selectJuice('مانجو أندلسي (Andalusian Mango)')">اطلب | Select</button>
+                        <span class="price" id="price-2">13 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('مانجو أندلسي طريقة إسبانية (Andalusian Mango)', 2)">اطلب | Select</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 2 -->
+            <!-- Item 3: Andalusian Spanish Strawberry -->
             <div class="menu-card">
                 <img src="Andalusian strawberryفراولة أندلسي.png" alt="فراولة أندلسي" class="card-img">
                 <div class="card-body">
                     <div>
-                        <div class="card-title">فراولة أندلسي | Andalusian Strawberry</div>
-                        <div class="card-desc">عصير فراولة طازج ومنعش</div>
+                        <div class="card-title">فراولة أندلسي طريقة إسبانية | Andalusian Strawberry Spanish</div>
+                        <div class="card-desc">مذاق الفراولة المنعش بالطريقة الإسبانية الفاخرة</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-3">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-3" class="size-select" onchange="updatePrice(3)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 13 ريال" selected>وسط (Medium) - 13 ريال</option>
+                            <option value="كبير (Large) - 15 ريال">كبير (Large) - 15 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 25 ريال">جالون 1 لتر - 25 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 32 ريال">جالون 1.5 لتر - 32 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 92 ريال">جالون 5 لتر - 92 ريال</option>
+                        </select>
                     </div>
                     <div class="card-footer">
-                        <span class="price">14 ريال</span>
-                        <button class="btn-select" onclick="selectJuice('فراولة أندلسي (Andalusian Strawberry)')">اطلب | Select</button>
+                        <span class="price" id="price-3">13 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('فراولة أندلسي طريقة إسبانية (Andalusian Strawberry)', 3)">اطلب | Select</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 4: Awar Qalb -->
             <div class="menu-card">
-                <img src="1792169752884.jpg" alt="عصير مشكل" class="card-img">
+                <img src="Cocktail fruits كوكتيلا الفواكه.png" alt="عوار قلب" class="card-img">
                 <div class="card-body">
                     <div>
-                        <div class="card-title">كوكتيل طعم المانجو | Mango Mix Cocktail</div>
-                        <div class="card-desc">خلطة ممتازة من الفواكه المشكلة الطازجة</div>
+                        <div class="card-title">عوار قلب | Awar Qalb</div>
+                        <div class="card-desc">المشروب الشهير الغني بالفواكه والآيس كريم</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-4">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-4" class="size-select" onchange="updatePrice(4)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 13 ريال" selected>وسط (Medium) - 13 ريال</option>
+                            <option value="كبير (Large) - 15 ريال">كبير (Large) - 15 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 25 ريال">جالون 1 لتر - 25 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 32 ريال">جالون 1.5 لتر - 32 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 92 ريال">جالون 5 لتر - 92 ريال</option>
+                        </select>
                     </div>
                     <div class="card-footer">
-                        <span class="price">18 ريال</span>
-                        <button class="btn-select" onclick="selectJuice('كوكتيل طعم المانجو (Mango Mix Cocktail)')">اطلب | Select</button>
+                        <span class="price" id="price-4">13 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('عوار قلب (Awar Qalb)', 4)">اطلب | Select</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 4 -->
+            <!-- Item 5: Moroccan Avocado -->
             <div class="menu-card">
-                <img src="1789236494393.png" alt="عصير طازج" class="card-img">
+                <img src="Avocado Moroccan أفوكادو مغربي.png" alt="أفوكادو مغربي" class="card-img">
                 <div class="card-body">
                     <div>
-                        <div class="card-title">عصير منعش خاص | Fresh Special Juice</div>
-                        <div class="card-desc">مزيج طازج خاص يمنحك النشاط</div>
+                        <div class="card-title">أفوكادو طريقة مغربية | Moroccan Avocado</div>
+                        <div class="card-desc">أفوكادو طبيعي بالعسل والمكسرات</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-5">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-5" class="size-select" onchange="updatePrice(5)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 13 ريال" selected>وسط (Medium) - 13 ريال</option>
+                            <option value="كبير (Large) - 15 ريال">كبير (Large) - 15 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 25 ريال">جالون 1 لتر - 25 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 32 ريال">جالون 1.5 لتر - 32 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 92 ريال">جالون 5 لتر - 92 ريال</option>
+                        </select>
                     </div>
                     <div class="card-footer">
-                        <span class="price">16 ريال</span>
-                        <button class="btn-select" onclick="selectJuice('عصير منعش خاص (Fresh Special Juice)')">اطلب | Select</button>
+                        <span class="price" id="price-5">13 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('أفوكادو طريقة مغربية (Moroccan Avocado)', 5)">اطلب | Select</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 5 -->
+            <!-- Item 6: Fakhfakhina -->
             <div class="menu-card">
-                <img src="Bortunasبورتوناس.png" alt="عصير برتقال/مشكل" class="card-img">
+                <img src="Fakhfakhina فخفخينا.png" alt="فخفخينا" class="card-img">
                 <div class="card-body">
                     <div>
-                        <div class="card-title">عصير فواكه طازج | Fresh Fruits Blend</div>
-                        <div class="card-desc">عصير طبيعي 100% بدون إضافات</div>
+                        <div class="card-title">فخفخينا | Fakhfakhina</div>
+                        <div class="card-desc">تشكيلة فواكه طازجة مع قطع المانجو والرمان</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-6">اختر الحجم | Size:</label>
+                        <select id="size-6" class="size-select" onchange="updatePrice(6)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 13 ريال" selected>وسط (Medium) - 13 ريال</option>
+                            <option value="كبير (Large) - 15 ريال">كبير (Large) - 15 ريال</option>
+                        </select>
                     </div>
                     <div class="card-footer">
-                        <span class="price">15 ريال</span>
-                        <button class="btn-select" onclick="selectJuice('عصير فواكه طازج (Fresh Fruits Blend)')">اطلب | Select</button>
+                        <span class="price" id="price-6">13 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('فخفخينا (Fakhfakhina)', 6)">اطلب | Select</button>
                     </div>
                 </div>
             </div>
+
+            <!-- Item 7: Fresh Apple -->
+            <div class="menu-card">
+                <img src="Apple تفاح.png" alt="عصير تفاح" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">عصير تفاح طازج | Fresh Apple Juice</div>
+                        <div class="card-desc">عصير تفاح طبيعي 100%</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-7">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-7" class="size-select" onchange="updatePrice(7)">
+                            <option value="صغير (Small) - 9 ريال">صغير (Small) - 9 ريال</option>
+                            <option value="وسط (Medium) - 12 ريال" selected>وسط (Medium) - 12 ريال</option>
+                            <option value="كبير (Large) - 14 ريال">كبير (Large) - 14 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 24 ريال">جالون 1 لتر - 24 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 31 ريال">جالون 1.5 لتر - 31 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 90 ريال">جالون 5 لتر - 90 ريال</option>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price" id="price-7">12 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('عصير تفاح طازج (Fresh Apple)', 7)">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8: Fresh Carrot -->
+            <div class="menu-card">
+                <img src="Carrot جزر.png" alt="عصير جزر" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">عصير جزر طازج | Fresh Carrot Juice</div>
+                        <div class="card-desc">عصير جزر طازج صحي ومنعش</div>
+                    </div>
+                    <div class="size-options">
+                        <label for="size-8">اختر الحجم أو الجالون | Size / Bottle:</label>
+                        <select id="size-8" class="size-select" onchange="updatePrice(8)">
+                            <option value="صغير (Small) - 8 ريال">صغير (Small) - 8 ريال</option>
+                            <option value="وسط (Medium) - 11 ريال" selected>وسط (Medium) - 11 ريال</option>
+                            <option value="كبير (Large) - 13 ريال">كبير (Large) - 13 ريال</option>
+                            <option value="جالون 1 لتر (1 Liter) - 22 ريال">جالون 1 لتر - 22 ريال</option>
+                            <option value="جالون 1.5 لتر (1.5 Liter) - 28 ريال">جالون 1.5 لتر - 28 ريال</option>
+                            <option value="جالون 5 لتر (5 Liter) - 86 ريال">جالون 5 لتر - 86 ريال</option>
+                        </select>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price" id="price-8">11 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('عصير جزر طازج (Fresh Carrot)', 8)">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Order Form Section -->
@@ -348,17 +488,22 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="selectedItem">العصير المختار | Selected Juice:</label>
-                    <input type="text" id="selectedItem" class="form-control" placeholder="اختر من القائمة أعلاه أو اكتب هنا" required>
+                    <label for="selectedItem">المنتج الحجم / الجالون المختار | Selected Item & Size:</label>
+                    <input type="text" id="selectedItem" class="form-control" placeholder="اختر من القائمة أعلاه" required readonly>
                 </div>
 
                 <div class="form-group">
-                    <label for="clientNotes">ملاحظات إضافية | Notes:</label>
-                    <textarea id="clientNotes" class="form-control" rows="3" placeholder="مثال: بدون سكر إضافي، العنوان..."></textarea>
+                    <label for="clientAddress">عنوان التوصيل | Delivery Address:</label>
+                    <input type="text" id="clientAddress" class="form-control" placeholder="مثال: الحي، الشارع، رقم المبنى..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientNotes">ملاحظات إضافية | Notes (إضافة آيس كريم +1 ريال):</label>
+                    <textarea id="clientNotes" class="form-control" rows="3" placeholder="مثال: بدون سكر إضافي، إضافة آيس كريم..."></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-order">
-                    <i class="fa-brands fa-whatsapp"></i> إرسال الطلب عبر الواتساب | Send Order
+                    <i class="fa-brands fa-whatsapp"></i> إرسال الطلب عبر الواتساب | Send Order (0507327670)
                 </button>
             </form>
         </div>
@@ -367,13 +512,37 @@
 
     <footer>
         <p><strong>طعم المانجو | Taste of Mango</strong></p>
-        <p>هاتف / WhatsApp: 0507327670</p>
+        <p>هاتف / WhatsApp: 0507327670 - 0574924851</p>
+        <p style="margin-top: 5px;">📍 خدمة التوصيل السريع متاحة</p>
         <p style="margin-top: 10px; font-size: 0.8rem;">&copy; 2026 جميع الحقوق محفوظة</p>
     </footer>
 
     <script>
-        function selectJuice(juiceName) {
-            document.getElementById('selectedItem').value = juiceName;
+        // Official menu prices mapping
+        const priceMap = {
+            1: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 13 ريال": "13 ريال", "كبير (Large) - 15 ريال": "15 ريال", "جالون 1 لتر (1 Liter) - 24 ريال": "24 ريال", "جالون 1.5 لتر (1.5 Liter) - 31 ريال": "31 ريال", "جالون 5 لتر (5 Liter) - 90 ريال": "90 ريال" },
+            2: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 13 ريال": "13 ريال", "كبير (Large) - 15 ريال": "15 ريال", "جالون 1 لتر (1 Liter) - 25 ريال": "25 ريال", "جالون 1.5 لتر (1.5 Liter) - 32 ريال": "32 ريال", "جالون 5 لتر (5 Liter) - 92 ريال": "92 ريال" },
+            3: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 13 ريال": "13 ريال", "كبير (Large) - 15 ريال": "15 ريال", "جالون 1 لتر (1 Liter) - 25 ريال": "25 ريال", "جالون 1.5 لتر (1.5 Liter) - 32 ريال": "32 ريال", "جالون 5 لتر (5 Liter) - 92 ريال": "92 ريال" },
+            4: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 13 ريال": "13 ريال", "كبير (Large) - 15 ريال": "15 ريال", "جالون 1 لتر (1 Liter) - 25 ريال": "25 ريال", "جالون 1.5 لتر (1.5 Liter) - 32 ريال": "32 ريال", "جالون 5 لتر (5 Liter) - 92 ريال": "92 ريال" },
+            5: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 13 ريال": "13 ريال", "كبير (Large) - 15 ريال": "15 ريال", "جالون 1 لتر (1 Liter) - 25 ريال": "25 ريال", "جالون 1.5 لتر (1.5 Liter) - 32 ريال": "32 ريال", "جالون 5 لتر (5 Liter) - 92 ريال": "92 ريال" },
+            6: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 13 ريال": "13 ريال", "كبير (Large) - 15 ريال": "15 ريال" },
+            7: { "صغير (Small) - 9 ريال": "9 ريال", "وسط (Medium) - 12 ريال": "12 ريال", "كبير (Large) - 14 ريال": "14 ريال", "جالون 1 لتر (1 Liter) - 24 ريال": "24 ريال", "جالون 1.5 لتر (1.5 Liter) - 31 ريال": "31 ريال", "جالون 5 لتر (5 Liter) - 90 ريال": "90 ريال" },
+            8: { "صغير (Small) - 8 ريال": "8 ريال", "وسط (Medium) - 11 ريال": "11 ريال", "كبير (Large) - 13 ريال": "13 ريال", "جالون 1 لتر (1 Liter) - 22 ريال": "22 ريال", "جالون 1.5 لتر (1.5 Liter) - 28 ريال": "28 ريال", "جالون 5 لتر (5 Liter) - 86 ريال": "86 ريال" }
+        };
+
+        function updatePrice(itemId) {
+            const selectElement = document.getElementById(`size-${itemId}`);
+            const selectedSizeText = selectElement.value;
+            const priceDisplay = document.getElementById(`price-${itemId}`);
+            priceDisplay.textContent = priceMap[itemId][selectedSizeText];
+        }
+
+        function selectJuice(juiceName, itemId) {
+            const sizeSelect = document.getElementById(`size-${itemId}`);
+            const selectedSize = sizeSelect.value;
+            const finalSelection = `${juiceName} (${selectedSize})`;
+            
+            document.getElementById('selectedItem').value = finalSelection;
             document.getElementById('orderFormSection').scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -382,6 +551,7 @@
             const name = document.getElementById('clientName').value;
             const phone = document.getElementById('clientPhone').value;
             const item = document.getElementById('selectedItem').value;
+            const address = document.getElementById('clientAddress').value;
             const notes = document.getElementById('clientNotes').value;
             
             const whatsappNumber = "966507327670";
@@ -389,7 +559,8 @@
             const message = `مرحباً، أريد إتمام طلب جديد:%0A` +
                             `- الاسم: ${encodeURIComponent(name)}%0A` +
                             `- الجوال: ${encodeURIComponent(phone)}%0A` +
-                            `- الطلب: ${encodeURIComponent(item)}%0A` +
+                            `- الطلب والحجم: ${encodeURIComponent(item)}%0A` +
+                            `- عنوان التوصيل: ${encodeURIComponent(address)}%0A` +
                             `- ملاحظات: ${encodeURIComponent(notes || 'لا يوجد')}`;
             
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
