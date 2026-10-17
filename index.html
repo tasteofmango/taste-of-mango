@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طعم المانجو | Taste of Mango</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF9F1C;
+            --secondary: #2EC4B6;
+            --dark: #2B2D42;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+            --accent: #E71D36;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #FFF9F2;
+            color: var(--dark);
+            direction: rtl;
+            text-align: right;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF9F1C, #FFBF69);
+            color: var(--white);
+            padding: 35px 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 20px rgba(255, 159, 28, 0.2);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin: 30px 0 20px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #EEE;
+        }
+
+        .card-body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .btn-select {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-select:hover {
+            background-color: #25a195;
+        }
+
+        .order-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-order {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-order:hover {
+            background-color: #1ebc57;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 10px;
+            margin-top: 40px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        @media (max-width: 600px) {
+            .menu-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .card-img {
+                height: 130px;
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .card-desc {
+                font-size: 0.75rem;
+            }
+            .price {
+                font-size: 0.95rem;
+            }
+            .btn-select {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🥭 طعم المانجو | Taste of Mango</div>
+        <div class="tagline">عصائر طازجة وفاكهة طبيعية 100% | Fresh & Natural Juices</div>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title">قائمة العصائر | Menu</h2>
+
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <img src="Andulusian mangoمانجو أندلسي (1).png" alt="مانجو أندلسي" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">مانجو أندلسي | Andalusian Mango</div>
+                        <div class="card-desc">عصير مانجو طبيعي فاخر بقطع الفاكهة</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">15 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('مانجو أندلسي (Andalusian Mango)')">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <img src="Andalusian strawberryفراولة أندلسي (1).png" alt="فراولة أندلسي" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">فراولة أندلسي | Andalusian Strawberry</div>
+                        <div class="card-desc">عصير فراولة طازج ومنعش</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">14 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('فراولة أندلسي (Andalusian Strawberry)')">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <img src="1792169752884.jpg" alt="عصير مشكل" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">كوكتيل طعم المانجو | Mango Mix Cocktail</div>
+                        <div class="card-desc">خلطة ممتازة من الفواكه المشكلة الطازجة</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">18 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('كوكتيل طعم المانجو (Mango Mix Cocktail)')">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-card">
+                <img src="1789236494393 (1).png" alt="عصير طازج" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">عصير منعش خاص | Fresh Special Juice</div>
+                        <div class="card-desc">مزيج طازج خاص يمنحك النشاط</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">16 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('عصير منعش خاص (Fresh Special Juice)')">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="menu-card">
+                <img src="1790185014146.png" alt="عصير برتقال/مشكل" class="card-img">
+                <div class="card-body">
+                    <div>
+                        <div class="card-title">عصير فواكه طازج | Fresh Fruits Blend</div>
+                        <div class="card-desc">عصير طبيعي 100% بدون إضافات</div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">15 ريال</span>
+                        <button class="btn-select" onclick="selectJuice('عصير فواكه طازج (Fresh Fruits Blend)')">اطلب | Select</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Form Section -->
+        <div class="order-section" id="orderFormSection">
+            <h2 style="text-align: center; margin-bottom: 20px; color: var(--dark);">طلب إرسال عبر الواتساب | WhatsApp Order</h2>
+            
+            <form onsubmit="sendOrder(event)">
+                <div class="form-group">
+                    <label for="clientName">الاسم | Your Name:</label>
+                    <input type="text" id="clientName" class="form-control" placeholder="مثال: محمد علي" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientPhone">رقم الجوال | Phone Number:</label>
+                    <input type="tel" id="clientPhone" class="form-control" placeholder="مثال: 050xxxxxxx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectedItem">العصير المختار | Selected Juice:</label>
+                    <input type="text" id="selectedItem" class="form-control" placeholder="اختر من القائمة أعلاه أو اكتب هنا" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientNotes">ملاحظات إضافية | Notes:</label>
+                    <textarea id="clientNotes" class="form-control" rows="3" placeholder="مثال: بدون سكر إضافي، العنوان..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-order">
+                    <i class="fa-brands fa-whatsapp"></i> إرسال الطلب عبر الواتساب | Send Order
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p><strong>طعم المانجو | Taste of Mango</strong></p>
+        <p>هاتف / WhatsApp: 0507327670</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">&copy; 2026 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        function selectJuice(juiceName) {
+            document.getElementById('selectedItem').value = juiceName;
+            document.getElementById('orderFormSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sendOrder(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const item = document.getElementById('selectedItem').value;
+            const notes = document.getElementById('clientNotes').value;
+            
+            const whatsappNumber = "966507327670";
+            
+            const message = `مرحباً، أريد إتمام طلب جديد:%0A` +
+                            `- الاسم: ${encodeURIComponent(name)}%0A` +
+                            `- الجوال: ${encodeURIComponent(phone)}%0A` +
+                            `- الطلب: ${encodeURIComponent(item)}%0A` +
+                            `- ملاحظات: ${encodeURIComponent(notes || 'لا يوجد')}`;
+            
+            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
